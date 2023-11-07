@@ -1,15 +1,37 @@
-# ctrl (option) + shift + f -> search
-# ctrl + O -> open file
+result = None
+operand = None
+operator = None
+wait_for_number = True
 
+while True:
 
+    result 
+    
+    if wait_for_number == True:
+    
+        operand = int(input("Input please a number: "))
 
-a = 2
+        if operator == "+":
 
-print("How fast!!!")
+            result = result + operand
+            
+        elif operator == "-":
+            
+            result = result - operand
 
-a = 3
+        elif operator == "*":
 
+            result = result * operand
 
-print("hello world")
+        elif operator == "/":
 
+            result = result / operand
 
+        elif operator is None:
+
+            result = operand
+
+            
+        wait_for_number = False
+    
+    else:      
