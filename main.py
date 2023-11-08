@@ -4,18 +4,22 @@ operator = None
 wait_for_number = True
 
 while True:
-
-    result 
     
     if wait_for_number == True:
-    
-        operand = int(input("Input please a number: "))
+
+        try:
+            
+            operand = int(input("Input please a number: "))
+
+        except ValueError:
+
+            operand = int(input("Not a number, please input a number: "))
 
         if operator == "+":
 
             result = result + operand
             
-        elif operator == "-":
+        elif operator == "-": 
             
             result = result - operand
 
@@ -31,7 +35,25 @@ while True:
 
             result = operand
 
+        elif operand == "=":
+
+            break
             
         wait_for_number = False
     
-    else:      
+    else: 
+
+        operator =(input("Input please an operator: "))
+
+        if operator == "=":
+
+            break
+
+        elif operator != "+" and operator != "-" and operator != "*" and operator != "/":
+
+            operator =(input("Input please a valid operator!: "))
+
+        wait_for_number = True
+
+        
+print(result)
