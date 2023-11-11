@@ -5,14 +5,24 @@ class WidthError(ValueError):
     pass
 
 class HeightError(ValueError):
+    pass
 
-if a != b:
+# if a != b:
         
-    raise ValueErrror("A != B")
+#    raise ValueErrror("A != B")
 
 try:
-    if a < 0 or b < 0:
-        raise WidthError("")
-except WidthError:
+    if a < 0:
+        raise WidthError("Error")
+    
+except ValueError:
+
+    print("Error while checking")
+
+try:
+    if b < 0:
+        raise HeightError("Error!")
+    
+except ValueError:
 
     print("Error while checking")
