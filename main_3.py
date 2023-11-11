@@ -1,14 +1,14 @@
-base_rate = 40
-price_per_km = 10
-total_trip = 0
 
 
-def calculate_trip_price(distance_km):
+def format_string(string, length):
 
-    global total_trip
+    if len(string) >= length:
+        
+        return string
 
-    total_trip = total_trip + 1
+    else:
 
-    trip_price = base_rate + (distance_km * price_per_km)
+        return "" * ((length - len(string)) // 2) + string
 
-    return trip_price
+print(format_string('abaa', 15))
+      
