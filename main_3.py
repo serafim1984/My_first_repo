@@ -1,17 +1,19 @@
-def factorial(n):
-    
-    if n < 2:
-        return 1  # Базовий випадок
-    else:
-        return n * factorial(n - 1)
-    
-        
+def fibonacci(n):
 
+    if n == 0:
 
-def number_of_groups(n, k):
+        f_n = 0
 
-    return int(factorial(n)/(factorial(n - k) * factorial(k))) # to represent without .0 due to devision
+    elif n == 1:
 
-print(number_of_groups(50, 7))
+        f_n = 1
+
+    else: 
+
+        f_n = fibonacci(n - 1) + fibonacci(n - 2)
+
+    return f_n
+
+print(fibonacci(5))
 
       
