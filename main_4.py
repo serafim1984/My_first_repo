@@ -1,19 +1,11 @@
-def amount_payment(*payment):
+def prepare_data(data):
+
+    data.sort()
+
+    data.pop(0)
+    data.pop(-1)
     
-    sum = 0
-    i = 0
-    
-    for i in payment:
-        
-        if i > 0:
 
-            sum = sum + i
+    return data
 
-    return sum
-
-print(amount_payment(100, 200, 300))
-
-
-
-
-      
+print(prepare_data([5, 6, 10, 19, 3, 8]))
