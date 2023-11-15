@@ -1,14 +1,34 @@
-def lookup_key(data, value):
-     
-    keys = []
+def split_list(grade):
 
-    for k, v in data.items():
+    sum = 0
 
-        if v == value:
+    low_grade  = []
 
-            keys.append(k)
+    high_grade = []
+
+    for i in grade:
+        
+        sum = sum + i
+
+    try:
     
-    return keys   
+       avr = sum / len(grade)
+
+    except:
+
+        return low_grade, high_grade
+
+    for i in grade:
+
+        if i <= avr:
+
+            low_grade.append(i)
+
+        else: 
+
+            high_grade.append(i)  
+
+    return low_grade, high_grade
 
 
-print(lookup_key({'key1': 1, 'key2': 2, 'key3': 3, 'key4': 2}, 2))
+print(split_list([5, 4, 5, 3, 3, 4, 5, 2, 1, 2]))
