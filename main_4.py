@@ -1,11 +1,19 @@
-def prepare_data(data):
+def format_ingredients(items):
 
-    data.sort()
+    try:
+        
+        recepe = items[0]
 
-    data.pop(0)
-    data.pop(-1)
+    except:
+
+        return ""
     
+    for item in items[1:-1:]:
 
-    return data
+        
+        recepe = recepe + f", {item}"
 
-print(prepare_data([5, 6, 10, 19, 3, 8]))
+
+    return recepe + f" and {items[-1]}" if len(items) > 1 else recepe
+
+print(format_ingredients([]))

@@ -64,6 +64,8 @@ print(a) ''' # - print 0!!!
 intro(firstname = "Olekcsndr", last_name = "Holodetskyi", age = 18, school = "GoIT") '''
 
 
+print(__name__)
+
 
 
 
