@@ -1,34 +1,47 @@
-def split_list(grade):
+points = {
+    (0, 1): 2,
+    (0, 2): 3.8,
+    (0, 3): 2.7,
+    (1, 2): 2.5,
+    (1, 3): 4.1,
+    (2, 3): 3.9,
+}
+
+
+def calculate_distance(coordinates):
 
     sum = 0
 
-    low_grade  = []
+    j = 0
 
-    high_grade = []
+    for i in coordinates:
 
-    for i in grade:
-        
-        sum = sum + i
-
-    try:
+        j = j + 1
     
-       avr = sum / len(grade)
+        if j < len(coordinates):
 
-    except:
+            if i < coordinates[j]:
 
-        return low_grade, high_grade
+                for k, l in points.items():
 
-    for i in grade:
+                    if k == (i, coordinates[j]):
 
-        if i <= avr:
+                        sum = sum + l
+                        
+                        break
 
-            low_grade.append(i)
+            else:
 
-        else: 
+                for k, l in points.items():
 
-            high_grade.append(i)  
+                    if k == (coordinates[j], i):
 
-    return low_grade, high_grade
+                        sum = sum + l
+                        
+                        break
 
 
-print(split_list([5, 4, 5, 3, 3, 4, 5, 2, 1, 2]))
+
+    return sum
+
+print(calculate_distance((0, 1, 2, 3)))
