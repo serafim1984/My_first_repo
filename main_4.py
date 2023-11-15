@@ -1,17 +1,14 @@
-def get_grade(key):
+def lookup_key(data, value):
+     
+    keys = []
+
+    for k, v in data.items():
+
+        if v == value:
+
+            keys.append(k)
     
-    grades = {"F" : 1, "FX" : 2, "E" : 3, "D" : 3, "C" : 4, "B" : 5, "A" : 5}
-
-    return grades.get(key)
+    return keys   
 
 
-def get_description(key):
-    
-    grades = {"F" : "Unsatisfactorily", "FX" : "Unsatisfactorily", "E" : "Enough", "D" : "Satisfactorily", "C" : "Good", "B" : "Very good", "A" : "Perfectly"}    
-
-    return grades.get(key)
-
-
-print(get_grade("A"))
-
-print(get_description("F"))
+print(lookup_key({'key1': 1, 'key2': 2, 'key3': 3, 'key4': 2}, 2))
