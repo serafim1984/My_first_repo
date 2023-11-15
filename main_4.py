@@ -1,19 +1,17 @@
-def format_ingredients(items):
-
-    try:
-        
-        recepe = items[0]
-
-    except:
-
-        return ""
+def get_grade(key):
     
-    for item in items[1:-1:]:
+    grades = {"F" : 1, "FX" : 2, "E" : 3, "D" : 3, "C" : 4, "B" : 5, "A" : 5}
 
-        
-        recepe = recepe + f", {item}"
+    return grades.get(key)
 
 
-    return recepe + f" and {items[-1]}" if len(items) > 1 else recepe
+def get_description(key):
+    
+    grades = {"F" : "Unsatisfactorily", "FX" : "Unsatisfactorily", "E" : "Enough", "D" : "Satisfactorily", "C" : "Good", "B" : "Very good", "A" : "Perfectly"}    
 
-print(format_ingredients([]))
+    return grades.get(key)
+
+
+print(get_grade("A"))
+
+print(get_description("F"))
