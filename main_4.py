@@ -1,32 +1,12 @@
-def is_valid_pin_codes(pin_codes):
-   
-    if len(pin_codes) == 0:
+from random import randint
 
-        return False
 
-    for pin_code in pin_codes:
+def get_random_password():
 
-        if len(pin_code) != 4 and type(pin_code) == str:
+    pswr = ""
 
-            return False
-
-    for pin_code in pin_codes:
-
-        j = pin_codes.index(pin_code) + 1
-
-        if pin_code in pin_codes[j::]:
-
-            return False
-
-    for pin_code in pin_codes:
-
-        for letter in pin_code:
-
-            if 48 > ord(letter) or ord(letter) > 57:
-
-                return False
-
+    for i in range(8):
     
-    return True 
+        pswr = pswr + chr(randint(40,126))
 
-print(is_valid_pin_codes(['1101', '9034', '0011']))
+    return pswr
