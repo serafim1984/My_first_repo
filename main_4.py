@@ -1,18 +1,32 @@
-def game(terra, power):
+def is_valid_pin_codes(pin_codes):
+   
+    if len(pin_codes) == 0:
 
-    power_sum = power
+        return False
 
-    for list in terra:
+    for pin_code in pin_codes:
 
-        for list_power in list:
+        if len(pin_code) != 4 and type(pin_code) == str:
 
-            if power_sum >= list_power:
+            return False
 
-                power_sum += list_power
+    for pin_code in pin_codes:
 
-            else:
+        j = pin_codes.index(pin_code) + 1
 
-                break
+        if pin_code in pin_codes[j::]:
 
-    return power_sum
+            return False
 
+    for pin_code in pin_codes:
+
+        for letter in pin_code:
+
+            if 48 > ord(letter) or ord(letter) > 57:
+
+                return False
+
+    
+    return True 
+
+print(is_valid_pin_codes(['1101', '9034', '0011']))
