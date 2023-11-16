@@ -1,15 +1,21 @@
-def parse_folder(path):
-    files = []
-    folders = []
+import sys
+
+
+def parse_args():
+    result = ""
+
+    arglst = sys.argv
     
-    for itm in path.iterdir():
+    for arg in arglst[1:]:
 
-        if itm.is_file():
+        if arglst.index(arg) == 1:
 
-             files.append(itm.name)
+            result = arg
 
-        if itm.is_dir():
+        else:
 
-             folders.append(itm.name) 
-            
-    return files, folders
+            result = result + " " + arg
+        
+    return result
+
+print(parse_args())
