@@ -1,26 +1,51 @@
+from random import randint
+
+
+def get_random_password():
+    result = ""
+    count = 0
+    while count < 8:
+        random_symbol = chr(randint(40, 126))
+        result = result + random_symbol
+        count = count + 1
+    return result
+
+
 def is_valid_password(password):
-
-    check_1 = False
-    check_2 = False
-    check_3 = False
-    
-
-    if len(password) < 8:
-
+    if len(password) != 8:
         return False
 
-    for sym in password:
+    has_upper = False
+    has_lower = False
+    has_num = False
 
-        if ord(sym) > 65 and ord(sym) < 90:
+    for ch in password:
+        if ch.isupper():
+            has_upper = True
+        elif ch.islower():
+            has_lower = True
+        elif ch.isdigit():
+            has_num = True
 
-              check_1 = True
+    return has_upper and has_lower and has_num
 
-        if ord(sym) > 97 and ord(sym) < 122:
 
-              check_2 = True
+def get_password():
 
-        if ord(sym) > 48 and ord(sym) < 57:
+    cnt = 0
 
-              check_3 = True
+    while cnt < 100:
 
-    return check_1 and check_2 and check_3
+        password = get_random_password()
+
+        if is_valid_password(password):
+
+            return password
+
+        else:
+
+            cnt += 1
+
+            continue
+
+    return
