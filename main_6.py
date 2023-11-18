@@ -1,13 +1,66 @@
-def real_len(text):
+articles_dict = [
+    {
+        "title": "Endless ocean waters.",
+        "author": "Jhon Stark",
+        "year": 2019,
+    },
+    {
+        "title": "Oceans of other planets are full of silver",
+        "author": "Artur Clark",
+        "year": 2020,
+    },
+    {
+        "title": "An ocean that cannot be crossed.",
+        "author": "Silver Name",
+        "year": 2021,
+    },
+    {
+        "title": "The ocean that you love.",
+        "author": "Golden Gun",
+        "year": 2021,
+    },
+]
 
-    text_1 = text.replace("\n", "")
+def find_articles(key, letter_case=False):
+    
+    articles = []
+      
+    for art in articles_dict:
 
-    text_2 = text_1.replace("\f", "")
+        for k, v in art.items():
 
-    text_3 = text_2.replace("\r", "")
+            if type(v) != str:
 
-    text_4 = text_3.replace("\t", "")
+                continue
 
-    text_5 = text_4.replace("\v", "")
+            if letter_case == False:
 
-    return len(text_5)
+                key_1 = key.lower()
+                v_1 = v.lower()
+
+                if v_1.find(key_1) != -1:
+
+                    articles.append(art)
+
+                    break
+
+                else: 
+
+                    continue
+
+            else:
+
+                if v.find(key) != -1:
+
+                    articles.append(art)
+
+                    break
+
+                else: 
+
+                    continue
+                
+
+    return articles
+
+print(find_articles("Ocean"))
