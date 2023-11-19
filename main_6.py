@@ -1,52 +1,25 @@
-def sanitize_phone_number(phone):
-    new_phone = (
-        phone.strip()
-        .removeprefix("+")
-        .replace("(", "")
-        .replace(")", "")
-        .replace("-", "")
-        .replace(" ", "")
-    )
-    return new_phone
+import re
 
+def is_spam_words(text, spam_words, space_around=False):
 
-def get_phone_numbers_for_countries(list_phones):
+    text = text.lower()
 
-    list_JP = []
+    if space_around == False:
 
-    list_SG = []
+        for word in spam_words:
 
-    list_TW = []
+            if word in text:
 
-    list_UA = []
+                return True
 
-    dict = {}
-    
+    else:
 
-    for phone in list_phones:
+         for word in spam_words:
 
-        phone = sanitize_phone_number(phone)
+            if re.search(' ' + word + ' ', text):
 
-        if phone.startswith("81"):
+                return True       
 
-            list_JP.append(phone)
+            
 
-        elif phone.startswith("65"):
-
-            list_SG.append(phone)
-
-        elif phone.startswith("886"):
-
-            list_TW.append(phone)
-
-        else: 
-
-            list_UA.append(phone)
-
-    dict = {"UA" : list_UA, "JP" : list_JP, "TW" : list_TW, "SG" : list_SG}
-
-    return   dict
-
-
-
-print(get_phone_numbers_for_countries(['380998759405', '818765347', '8867658976', '657658976']))   
+    return False
