@@ -1,10 +1,3 @@
-def sanitize_phone_number(phone):
-        
-    phone = phone.strip()
-    phone = phone.replace("+", "")
-    phone = phone.replace(")", "")
-    phone = phone.replace("(", "")
-    phone = phone.replace("-", "")
-    phone = phone.replace(" ", "")
+def is_check_name(fullname, first_name):
 
-    return phone
+    return fullname.startswith(first_name) or False
