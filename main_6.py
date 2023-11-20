@@ -1,25 +1,28 @@
-import re
+CYRILLIC_SYMBOLS = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяєіїґ"
+TRANSLATION = ("a", "b", "v", "g", "d", "e", "e", "j", "z", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u",
+               "f", "h", "ts", "ch", "sh", "sch", "", "y", "", "e", "yu", "ya", "je", "i", "ji", "g")
 
-def is_spam_words(text, spam_words, space_around=False):
+TRANS = {}
 
-    text = text.lower()
+for c, l in zip(CYRILLIC_SYMBOLS, TRANSLATION):
 
-    if space_around == False:
+    TRANS[ord(c)] = l
+    TRANS[ord(c.upper())] = l.upper()
+    
 
-        for word in spam_words:
 
-            if word in text:
+def translate(name):
 
-                return True
+    trans_name = ""
 
-    else:
+    for letter in name:
 
-         for word in spam_words:
+        if letter == " ":
 
-            if re.search(' ' + word + ' ', text):
+            trans_name = trans_name + " "
 
-                return True       
-
+        else: 
             
+            trans_name = trans_name + TRANS.get(ord(letter))
 
-    return False
+    return trans_name
