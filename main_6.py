@@ -1,28 +1,17 @@
-CYRILLIC_SYMBOLS = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяєіїґ"
-TRANSLATION = ("a", "b", "v", "g", "d", "e", "e", "j", "z", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u",
-               "f", "h", "ts", "ch", "sh", "sch", "", "y", "", "e", "yu", "ya", "je", "i", "ji", "g")
+grades = {"A": 5, "B": 5, "C": 4, "D": 3, "E": 3, "FX": 2, "F": 1}
 
-TRANS = {}
 
-for c, l in zip(CYRILLIC_SYMBOLS, TRANSLATION):
+def formatted_grades(students):
 
-    TRANS[ord(c)] = l
-    TRANS[ord(c.upper())] = l.upper()
+    i = 0
+
+    list = []
     
+    for name, grd in students.items():
+
+        i += 1
+
+        list.append("{:>4}|{:<10}|{:^5}|{:^5}".format(i, name, grd, grades.get(grd)))
 
 
-def translate(name):
-
-    trans_name = ""
-
-    for letter in name:
-
-        if letter == " ":
-
-            trans_name = trans_name + " "
-
-        else: 
-            
-            trans_name = trans_name + TRANS.get(ord(letter))
-
-    return trans_name
+    return list
