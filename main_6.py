@@ -1,19 +1,13 @@
 import re
 
 
-def find_word(text, word):
+def replace_spam_words(text, spam_words):
 
-    match_res = re.search(word, text)
-
+    new_text = text
     
+    for word in spam_words:
     
-    if match_res:
+        new_text = re.sub(word, '*' * len(word), new_text, flags = re.IGNORECASE)
 
-         dict = {'result' : True, "first_index" : match_res.span()[0], "last_index" : match_res.span()[1], 'search_string' : word, 'string' : text}
+    return new_text
 
-    else:
-
-         dict = {'result' : False, "first_index" : None, "last_index" : None, 'search_string' : word, 'string' : text}
-
-
-    return dict
