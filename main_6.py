@@ -1,8 +1,14 @@
 import re
 
 
-def find_all_phones(text):
+def find_all_links(text):
     
-    result = re.findall(r"\+380\(\d{2}\)\d{3}-\d-\d{3}|\+380\(\d{2}\)\d{3}-\d{2}-\d{2}", text)
+    result = []
+    
+    iterator = re.finditer(r"https?://(?:www\.)?\w+\.\w+", text)
+    
+    for match in iterator:
+        
+        result.append(match.group())
     
     return result
