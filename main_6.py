@@ -1,15 +1,19 @@
-def formatted_numbers():
+import re
 
-    list = ["|{:^10}|{:^10}|{:^10}|".format('decimal', 'hex', 'binary')]
+
+def find_word(text, word):
+
+    match_res = re.search(word, text)
+
     
-    for i in range(16):
+    
+    if match_res:
 
-       
+         dict = {'result' : True, "first_index" : match_res.span()[0], "last_index" : match_res.span()[1], 'search_string' : word, 'string' : text}
 
-        list.append("|{:<10d}|{:^10x}|{:>10b}|".format(i, i, i))
-        
-    return list
+    else:
+
+         dict = {'result' : False, "first_index" : None, "last_index" : None, 'search_string' : word, 'string' : text}
 
 
-for el in formatted_numbers():
-    print(el)
+    return dict
