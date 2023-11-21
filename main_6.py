@@ -1,17 +1,15 @@
-grades = {"A": 5, "B": 5, "C": 4, "D": 3, "E": 3, "FX": 2, "F": 1}
+def formatted_numbers():
 
-
-def formatted_grades(students):
-
-    i = 0
-
-    list = []
+    list = ["|{:^10}|{:^10}|{:^10}|".format('decimal', 'hex', 'binary')]
     
-    for name, grd in students.items():
+    for i in range(16):
 
-        i += 1
+       
 
-        list.append("{:>4}|{:<10}|{:^5}|{:^5}".format(i, name, grd, grades.get(grd)))
-
-
+        list.append("|{:<10d}|{:^10x}|{:>10b}|".format(i, i, i))
+        
     return list
+
+
+for el in formatted_numbers():
+    print(el)
