@@ -1,13 +1,8 @@
 import re
 
 
-def replace_spam_words(text, spam_words):
+def find_all_emails(text):
+    result = re.findall(r"[a-zA-Z]{1}[\w\.]+@+\S{1,4}\.\S{2,3}", text)
+    return result
 
-    new_text = text
-    
-    for word in spam_words:
-    
-        new_text = re.sub(word, '*' * len(word), new_text, flags = re.IGNORECASE)
-
-    return new_text
-
+print(find_all_emails('Ima.Fool@iana.org Ima.Fool@iana.o 1Fool@iana.org first_last@iana.org first.middle.last@iana.or a@test.com abc111@test.com.net'))

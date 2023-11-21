@@ -67,6 +67,15 @@ intro(firstname = "Olekcsndr", last_name = "Holodetskyi", age = 18, school = "Go
 # print(__name__)
 
 
+# help(a.upper) - output description of method upper of string
+
+# ".".join - call of method join from empty string - in this case . will be a joint
+
+c = "10"
+
+help(c.isdigit())
+
+
 
 
 
