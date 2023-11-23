@@ -71,9 +71,21 @@ intro(firstname = "Olekcsndr", last_name = "Holodetskyi", age = 18, school = "Go
 
 # ".".join - call of method join from empty string - in this case . will be a joint
 
-c = "10"
+# c = "10"
 
-help(c.isdigit())
+# help(c.isdigit())
+
+# generator - lasy initialisation
+
+# .encode .decode - string methods transform string to bytes and bytes to string
+
+# def copy_file(file: Path): - can define the format - type hinting is not a validation of types it is just hint
+
+# Path from pathlib is a specific type
+
+# __file__ return path of script launch
+
+
 
 
 
