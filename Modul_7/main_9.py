@@ -2,13 +2,11 @@ def all_sub_lists(data):
 
     sublist_list = [[]]
 
-    for item in data:
+    for i in range(0, len(data)):
 
-        i = data.index(item)
+        for j in range(0, len(data) - i):
 
-        for i in range(data.index(item), len(data)):
-
-            sublist_list.append(data[data.index(item) : i + 1])
+            sublist_list.append(data[j : i + j + 1])
 
     return sublist_list
 
