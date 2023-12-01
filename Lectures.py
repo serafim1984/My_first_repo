@@ -86,6 +86,22 @@ intro(firstname = "Olekcsndr", last_name = "Holodetskyi", age = 18, school = "Go
 # __file__ return path of script launch
 
 
+# Lecture 8
+
+# black - module chech PEP8 rules of written script
+
+# precommit lecture for module 8
+
+# import pytz - library for using timezones (from pip)
+
+# import time    time.sleep(3)   - delay of interpretator - usfull for programs with several strims
+
+
+
+
+
+
+
 
 
 
