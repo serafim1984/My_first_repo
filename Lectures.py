@@ -97,6 +97,8 @@ intro(firstname = "Olekcsndr", last_name = "Holodetskyi", age = 18, school = "Go
 # import time    time.sleep(3)   - delay of interpretator - usfull for programs with several strims
 
 
+# ctrl + shift + p then format document 
+
 
 
 
